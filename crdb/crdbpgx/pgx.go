@@ -18,7 +18,7 @@ import (
 	"context"
 
 	"github.com/cockroachdb/cockroach-go/v2/crdb"
-	"github.com/jackc/pgx/v4"
+	"github.com/jackc/pgx/v5"
 )
 
 // ExecuteTx runs fn inside a transaction and retries it as needed. On

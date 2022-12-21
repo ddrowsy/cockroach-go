@@ -21,8 +21,8 @@ import (
 
 	"github.com/cockroachdb/cockroach-go/v2/crdb"
 	"github.com/cockroachdb/cockroach-go/v2/testserver"
-	"github.com/jackc/pgx/v4"
-	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // TestExecuteTx verifies transaction retry using the classic
@@ -34,7 +34,7 @@ func TestExecuteTx(t *testing.T) {
 	}
 	ctx := context.Background()
 
-	pool, err := pgxpool.Connect(ctx, ts.PGURL().String())
+	pool, err := pgxpool.New(ctx, ts.PGURL().String())
 	if err != nil {
 		t.Fatal(err)
 	}
